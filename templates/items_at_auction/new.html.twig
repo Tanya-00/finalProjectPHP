@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ItemsAtAuction{% endblock %}
+
+{% block body %}
+    <h1>Create new ItemsAtAuction</h1>
+
+    {{ include('items_at_auction/_form.html.twig') }}
+
+    <a href="{{ path('items_at_auction_index') }}">back to list</a>
+{% endblock %}

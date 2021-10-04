@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ItemsAtAuction{% endblock %}
+
+{% block body %}
+    <h1>Edit ItemsAtAuction</h1>
+
+    {{ include('items_at_auction/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('items_at_auction_index') }}">back to list</a>
+
+    {{ include('items_at_auction/_delete_form.html.twig') }}
+{% endblock %}

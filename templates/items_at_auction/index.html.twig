@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Items at auction{% endblock %}
+
+{% block body %}
+
+    <style>
+        .cont {margin: auto; max-width: 600px; width: 95%; font: 18px/1.5 "Times New Roman";}
+        .table {margin: auto; max-width: 600px; width: 95%; font: 18px/1.5 "Times New Roman";}
+    </style>
+
+    <div class = "cont">
+        <h1>Items at auction</h1>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>AuctionAddress</th>
+                <th>SellerName</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for items_at_auction in items_at_auctions %}
+            <tr>
+                <td>{{ items_at_auction.id }}</td>
+                <td>{{ items_at_auction.name }}</td>
+                <td>{{ items_at_auction.price }}</td>
+                <td>{{ items_at_auction.auctionAddress }}</td>
+                <td>{{ items_at_auction.sellerName }}</td>
+                <td>
+                    <a href="{{ path('items_at_auction_show', {'id': items_at_auction.id}) }}">show</a>
+                    <a href="{{ path('items_at_auction_edit', {'id': items_at_auction.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="cont" href="{{ path('items_at_auction_new') }}">Create new</a>
+    <a class="cont" href="{{ path('items_at_auction_search') }}">Search</a>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ItemsAtAuction{% endblock %}
+
+{% block body %}
+    <h1>ItemsAtAuction</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ items_at_auction.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ items_at_auction.name }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ items_at_auction.price }}</td>
+            </tr>
+            <tr>
+                <th>AuctionAddress</th>
+                <td>{{ items_at_auction.auctionAddress }}</td>
+            </tr>
+            <tr>
+                <th>SellerName</th>
+                <td>{{ items_at_auction.sellerName }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('items_at_auction_index') }}">back to list</a>
+
+    <a href="{{ path('items_at_auction_edit', {'id': items_at_auction.id}) }}">edit</a>
+
+    {{ include('items_at_auction/_delete_form.html.twig') }}
+{% endblock %}

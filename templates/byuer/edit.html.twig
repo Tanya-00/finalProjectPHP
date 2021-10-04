@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Byuer{% endblock %}
+
+{% block body %}
+    <h1>Edit Byuer</h1>
+
+    {{ include('byuer/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('byuer_index') }}">back to list</a>
+
+    {{ include('byuer/_delete_form.html.twig') }}
+{% endblock %}

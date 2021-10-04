@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Search Items at auction {% endblock %}
+
+{% block body %}
+    <style class = "st">
+        .container {margin: auto; max-width: 600px; width: 95%; font: 18px/1.5 "Times New Roman";}
+        .table {margin: auto; max-width: 600px; width: 95%; font: 18px/1.5 "Times New Roman";}
+        .inputItem {margin: auto; max-width: 600px; width: 95%; font: 18px/1.5 "Times New Roman"; }
+        .searchItem {margin: auto; max-width: 500px; width: 95%; font: 18px/1.5 "Times New Roman"; }
+        .btn {background: orchid; font: 16px "Times New Roman"; max-width: 100px; width: 55%; border-radius: 10px;}
+    </style>
+<div class = "container">
+    <h1>Search Items at auction</h1>
+    <h1>Enter the name of the item</h1>
+    <h2><i>Example "vase", "photo", "picture"</i></h2>
+    <form class="inputItem" action="{{ path('items_at_auction_search') }}" method="get">
+        <input class="searchItem" type="search" aria-label="Search" name="name">
+        <button class="btn" type="submit">Search</button>
+    </form>
+</div>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Auction address</th>
+            <th>Seller name</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for items_at_auction in items_at_auctions %}
+            <tr>
+                <td>{{ items_at_auction.name }}</td>
+                <td>{{ items_at_auction.price }}</td>
+                <td>{{ items_at_auction.auctionAddress }}</td>
+                <td>{{ items_at_auction.sellerName }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td>no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
